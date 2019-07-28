@@ -9,5 +9,5 @@ class DataFormat(Enum):
 class DataFile(type):
     def __new__(cls, name, bases, dct):
         spr = super().__new__(cls, name, bases, dct)
-        spr.dataformat = DataFormat.YML
+        spr.default_format = DataFormat.YML
         return spr
