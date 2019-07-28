@@ -1,9 +1,9 @@
-""" 
-LETS MAKE SOME ITEMS
-"""
 from enum import Enum
+from mixins import DataFileMixin, DataFormat
+import random as rand
 
-class ItmType(Enum):
+
+class ItmSlot(Enum):
     HEAD = 'head'
     BODY = 'body' 
     LEGS = 'legs' 
@@ -20,15 +20,48 @@ class DmgType(Enum):
 
 
 class Item(DataFileMixin):
-    def __init__(self) -> None:
+    def __init__(
+            self, 
+            itm_type: str,
+            itm_level: int,
+            itm_base=None
+            ) -> None:
+        self.itm_type = itm_type
+        self.itm_base = itm_base
+        self.itm_level = itm_level
+        self.data = self._file_dump(
+                'data/itm_bases.yml',
+                DataFormat.YML,
+                key=self.itm_type)
+        if not self.data:
+            raise NotImplementedError(
+                   'failed to load {itm}\
+                    from data/itm_bases.yml'.format(itm=str(self))
+                    )
+        self._make() 
 
 
-# what is an item?
-# * constitution cost (is it heavy)
-# * item type
-# * stats
-# * quality
+    def _make(self) -> None:
+        self.properties = self.data['defaults']
+        if not self.itm_base:
+            self.itm_base = self._rand_base()
+        self.properties.update(self.itm_base)
+        self.quality = self._rand_quality()
 
-# enemies drop what they're carrying!
+
+    def _rand_base(self) -> str:
+        possible_bases = self.data['bases']
+        self.base_name = rand.choice(list(possible_bases.keys()))
+        return possible_bases[self.base_name]
+
+    
+    def _rand_quality(self) -> int:
+        deviation = self.itm_level // 4
+        qual_min = self.itm_level - deviation
+        qual_max = self.itm_level + deviation
+        return rand.randint(qual_min, qual_max)
 
 
+    def __str__(self): 
+        return 'type: {type} | base: {base}'.format(
+                type=self.itm_type, base=self.base_name)

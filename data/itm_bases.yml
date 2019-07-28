@@ -8,46 +8,68 @@
 #
 spear:
     defaults:
-        slsh: 10
+        sprite: spear
+        slsh: 20
         stab: 80
-        crsh: 10
+        crsh:  0
         range: 3
-    names:
-        yari
-        Arbir
-        Dangpa
-        Gichang
-        Hoko yari
-        Ji
-        Kama-yari
-        Qiang
-        Sibat
-        Trishula
-        Yari
-        Naginata 
-        Ahlspiess
-        Boar spear
-        Bohemian earspoon
-        Brandistock
-        Dory
-        Fauchard
-        Goedendag
-        Halberd
-        Half pike
-        Hasta
-        Military fork
-        Ox tongue spear
-        Partisan
-        Pike
-        Ranseur
-        Sarissa
-        Spetum
-        Spontoon
-        Trident
-        Glaive
+        speed: 3
+        slot:
+            arm1
+            arm2
+    bases:
+        Yari: {}
+        Boar spear: {}
+        Brandistock: {}
+        Fauchard: {}
+        Halberd: {}
+        Half pike: {}
+        Hasta: {}
+        Partisan: {}
+        Pike: {}
+        Spetum: {}
+        Trident: {}
+        Glaive: {}
 
 sword:
     defaults:
+        sprite: sword
         slsh: 50
         stab: 50
         crsh: 0
+        reach: 1
+        speed: 2
+        slot: 
+            arm1
+    bases:
+        Arming sword: {}
+        Dagger: {}
+        Falchion: {}
+        Katana: {}
+        Knife: {}
+        Longsword: {}
+        Sabre : {}
+        Shortsword: {}
+        Ulfberht: {}
+        Estoc: {}
+        Rapier : {}
+
+club:
+    defaults:
+        sprite: club
+        slsh: 0 
+        stab: 0
+        crsh: 100
+        reach: 1
+        speed: 2
+        slot:
+            arm1
+    bases:
+        Morning Star: {}
+        Rock: {}
+        Branch: {}
+        Flail: {}
+        Blacksmith Hammer: {}
+        Sledgehammer: {}
+        Mace: {}
+        Mere: {}
