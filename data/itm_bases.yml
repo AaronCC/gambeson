@@ -1,0 +1,53 @@
+# ITEM BASES
+#
+# category:
+#   sub_category:
+#       
+# dmg: slsh+stab+crsh = 100
+# range: < 5
+#
+spear:
+    defaults:
+        slsh: 10
+        stab: 80
+        crsh: 10
+        range: 3
+    names:
+        yari
+        Arbir
+        Dangpa
+        Gichang
+        Hoko yari
+        Ji
+        Kama-yari
+        Qiang
+        Sibat
+        Trishula
+        Yari
+        Naginata 
+        Ahlspiess
+        Boar spear
+        Bohemian earspoon
+        Brandistock
+        Dory
+        Fauchard
+        Goedendag
+        Halberd
+        Half pike
+        Hasta
+        Military fork
+        Ox tongue spear
+        Partisan
+        Pike
+        Ranseur
+        Sarissa
+        Spetum
+        Spontoon
+        Trident
+        Glaive
+
+sword:
+    defaults:
+        slsh: 50
+        stab: 50
+        crsh: 0
